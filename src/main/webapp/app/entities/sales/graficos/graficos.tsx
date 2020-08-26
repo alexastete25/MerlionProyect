@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import ProductosMasVendidos from './productosMasVendidos'
-import FullWidthTabs from './asd'
+import FullWidthTabs from './componentePestañas'
 
 export default function Graficos(){
     
