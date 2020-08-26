@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 
 /**
@@ -101,6 +101,25 @@ public class SalesResource {
         log.debug("REST request to get Sales : {}", id);
         Optional<Sales> sales = salesRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(sales);
+    }
+
+    @GetMapping("/ventasentregadas")
+    public List<Map<String, Object>> getAllSalesByStateDelivered() {
+        log.debug("VENTAS CON ESTADO 'ENTREGADO'");
+        return salesRepository.findAllSaleByStateDelivered();
+
+    }
+    @GetMapping("/ventasencargadas")
+    public List<Map<String, Object>> getAllSalesByStateInCharge() {
+        log.debug("VENTAS CON ESTADO 'ENCARGADO'");
+        return salesRepository.findAllSaleByStateInCharge();
+
+    }
+    @GetMapping("/ventasenviadas")
+    public List<Map<String, Object>> getAllSalesByStateShipped() {
+        log.debug("VENTAS CON ESTADO 'SHIPPED'");
+        return salesRepository.findAllSaleByStateShipped();
+
     }
 
     /**
