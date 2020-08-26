@@ -12,10 +12,7 @@ import axios from 'axios'
  let lista:Array <ServerData>=[]
 
 export default class ProductosMasVendidos extends PureComponent {
-  // constructor(props){
-  //   super(props)
-  //   this.state=[]
-  // }
+ 
   consultarApi = async () => {
       await axios.request({
   url: "http://localhost:8080/api/ventasmasvendido",
@@ -47,12 +44,12 @@ export default class ProductosMasVendidos extends PureComponent {
         }}
       >
         <CartesianGrid stroke="#f5f5f5" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="name" name="Nombre del producto"/>
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="cantidad" barSize={20} fill="#413ea0" />
-        <Line type="monotone" dataKey="name" stroke="#ff7300" />
+        <Bar dataKey="cantidad" name="Cantidad de ventas" barSize={20} fill="#413ea0" />
+        <Line type="monotone" dataKey="name" name="Nombre del producto" stroke="#ff7300" />
       </ComposedChart>
     );
   }
