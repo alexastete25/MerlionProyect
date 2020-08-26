@@ -36,8 +36,8 @@ export default class ProductosMasVendidos extends PureComponent {
   render() {
     return (
       <ComposedChart
-        width={500}
-        height={400}
+        width={1000}
+        height={415}
         data={lista}
         margin={{
           top: 20, right: 20, bottom: 20, left: 20,
@@ -48,7 +48,7 @@ export default class ProductosMasVendidos extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="cantidad" name="Cantidad de ventas" barSize={20} fill="#413ea0" />
+        <Bar dataKey="cantidad" name="Cantidad de ventas" barSize={20} fill="#2A6A9E" />
         <Line type="monotone" dataKey="name" name="Nombre del producto" stroke="#ff7300" />
       </ComposedChart>
     );

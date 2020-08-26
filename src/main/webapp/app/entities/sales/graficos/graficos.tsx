@@ -11,6 +11,7 @@ export default function Graficos(){
         <div className="container">
         
     <FullWidthTabs></FullWidthTabs>
+    
         </div>
     );
   

@@ -39,8 +39,8 @@ export default class ProductosIngresos extends PureComponent {
       <>
      
       <BarChart
-        width={500}
-        height={300}
+        width={1100}
+        height={400}
         data={lista}
         margin={{
           top: 5, right: 30, left: 20, bottom: 5,
@@ -51,8 +51,8 @@ export default class ProductosIngresos extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="price"  name ="Precio del producto" fill="#8884d8" />
-        <Bar dataKey="total" name="Monto total de las ventas" fill="#82ca9d" />
+        <Bar dataKey="price"  name ="Precio del producto" fill="#6dcdea" />
+        <Bar dataKey="total" name="Monto total de las ventas" fill="#2A6A9E" />
       </BarChart>
      </>
     )};

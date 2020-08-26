@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ProductosMasVendidos from './productosMasVendidos'
 import ProductosIngresos from './productosQueDieronMasIngresos'
+import VentasDelDia from './cantidadDeVentasPorDia'
+import VentasDelDiaEntregado from './cantidadDeVentasEntregadasPorDia'
 import Grid from '@material-ui/core/Grid'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,7 +48,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 1000,
+    width: 1100,
   },
 }));
 
@@ -74,8 +76,8 @@ export default function FullWidthTabs() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Cantidad de ventas por dia" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="Cantidad de ventas del dia de hoy" {...a11yProps(0)} />
+          <Tab label="Cantidad de ventas entregadas hoy" {...a11yProps(1)} />
           <Tab label="5 productos que dieron más ganancias" {...a11yProps(2)} />
           <Tab label="5 productos mas vendidos" {...a11yProps(3)} />
         </Tabs>
@@ -86,12 +88,17 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} >
+        
          <Grid container justify = "center">
-        <ProductosMasVendidos></ProductosMasVendidos>
+
+         <VentasDelDia></VentasDelDia>
+         
         </Grid>
         </TabPanel>
         <TabPanel value={value} index={1} >
-        <ProductosMasVendidos></ProductosMasVendidos>
+        <Grid container justify = "center">
+        <VentasDelDiaEntregado></VentasDelDiaEntregado>
+        </Grid>
         </TabPanel>
         <TabPanel value={value} index={2}>
         <Grid container justify = "center">
