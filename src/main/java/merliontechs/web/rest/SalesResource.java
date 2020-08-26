@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 
 /**
@@ -102,6 +102,32 @@ public class SalesResource {
         Optional<Sales> sales = salesRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(sales);
     }
+
+    @GetMapping("/ventasentregadasdeldia")
+    public List<Map<String, Object>> getAllSalesInDeliveredToday() {
+        log.debug("VENTAS CON ESTADO 'ENTREGADO' DEL DIA ACTUAL");
+        return salesRepository.AllSalesByCurrentDayAndDelivered();
+    }
+
+    @GetMapping("/ventasdeldia")
+    public List<Map<String, Object>> getAllProductsToday() {
+        log.debug("VENTAS POR DIA");
+        return salesRepository.AllSalesByCurrentDay();
+    }
+
+    @GetMapping("/ventasmasingresos")
+    public List<Map<String, Object>> getAllProductsWithMoreIncome() {
+        log.debug("Ranking 5 productos que dieron mas ingresos");
+        return salesRepository.AllProductsMoreIncome();
+
+    }
+    @GetMapping("/ventasmasvendido")
+    public List<Map<String, Object>> getAllProductsWithMoreSelled() {
+        log.debug("Ranking 5 productos mas vendidos");
+        return salesRepository.AllProductsMoreSelled();
+
+    }
+ 
 
     /**
      * {@code DELETE  /sales/:id} : delete the "id" sales.
